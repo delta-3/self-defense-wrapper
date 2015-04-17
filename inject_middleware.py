@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-
+import sys
 import os
 import shutil
 import re
 
-dir = "/home/wil/delta3/src/mysite" #/app
+#dir = "/home/wil/delta3/src/mysite" #/app
 SETTINGS = "settings.py"
 SUFFIX = ".original"
 REGEX_MIDDLEWARE = "([\w\W]*MIDDLEWARE_CLASSES\s*=\s*\()([\w\W]*)"
@@ -37,6 +37,8 @@ def inject(filepath):
     else:
         print "Looks like its already injected, aborting"
 
+if __name__ == "__main__":
+    dir = sys.argv[1]
 
 for root, dirs, files in os.walk(dir):
     for file in files:

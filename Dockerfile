@@ -23,18 +23,18 @@ RUN apt-get install -y python python-dev python-distribute python-pip
 RUN pip install django
 
 # Get Django application to wrap
-RUN git clone https://github.com/delta-3/demo-webapp /app
+RUN git clone https://github.com/delta-3/vulnerable-webapp /app
 
 ADD inject_middleware.py /app/inject_middleware.py
 
 #Inject the depencencies
-RUN python /app/inject_middleware.py
+RUN python /app/inject_middleware.py /app
 
 # Install any web specific libraries
-# RUN pip install -r /app/requirements.txt
+RUN pip install -r /app/requirements.txt
 
 # Get middle ware
-RUN git clone https://github.com/delta-3/django-auto-repair
+RUN git clone https://github.com/delta-3/django-auto-repair /app/repair
 
 # Get SNORT 
 #RUN git clone
@@ -45,6 +45,6 @@ EXPOSE 8080
 # Set dir where CMD will execute
 WORKDIR /app
 
-CMD python server.py
+CMD python manager.py runserver
 
 
