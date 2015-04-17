@@ -14,7 +14,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe
 RUN apt-get update
 
 # Add essitial build tools
-RUN apt-get install git
+RUN apt-get install -y git
 
 # Install Python and Basic Python Tools
 RUN apt-get install -y python python-dev python-distribute python-pip

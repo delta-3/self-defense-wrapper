@@ -26,7 +26,7 @@ def inject(filepath):
     if not os.path.exists(backup):
         # First back up original
         shutil.move(filepath, backup)
-        f = open (filepath, 'r')
+        f = open (backup, 'r')
         s = f.read()
         f.close()
         content = re.match(REGEX_MIDDLEWARE, s)
