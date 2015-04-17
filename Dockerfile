@@ -45,6 +45,6 @@ EXPOSE 8080
 # Set dir where CMD will execute
 WORKDIR /app
 
-CMD python manager.py runserver
+CMD python manage.py runserver
 
 
