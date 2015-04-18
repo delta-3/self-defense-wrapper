@@ -40,11 +40,11 @@ RUN git clone https://github.com/delta-3/django-auto-repair /app/repair
 #RUN git clone
 
 # Port to expose
-EXPOSE 8080
+EXPOSE 8000
 
 # Set dir where CMD will execute
 WORKDIR /app
 
-CMD python manage.py runserver
+CMD python manage.py runserver 0.0.0.0:8000
 
 
