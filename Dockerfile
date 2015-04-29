@@ -38,7 +38,7 @@ RUN python /app/inject_middleware.py /app
 
 # Install the secure app with middle ware
 RUN git clone https://github.com/delta-3/django-auto-repair /defense
-RUN pip install -r /defense/requirments.txt
+RUN pip install -r /defense/requirements.txt
 RUN ln -s /defense/secure_app/ /app/
 
 #Build the database for secure app
